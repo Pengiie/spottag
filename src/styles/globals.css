@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-bold text-h1 text-black-100
+  }
+  h2 {
+    @apply font-bold text-h2 text-black-100
+  }
+  h3 {
+    @apply font-thin text-h3 text-black-100
+  }
+  h4 {
+    @apply font-bold text-h4 text-black-100
+  }
+  h5 {
+    @apply font-bold text-h5 text-black-100
+  }
+  p {
+    @apply text-body text-black-100
+  }
+}
+
+@layer components {
+  .bg-brand-button {
+    @apply bg-gradient-to-r from-secondary to-primary bg-left transition-all duration-200;
+    background-size: 200% 200%;
+  }
+  .bg-brand-button:hover {
+    @apply bg-gradient-to-l from-secondary to-primary bg-right cursor-pointer brightness-95;
+  }
+}
