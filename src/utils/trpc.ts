@@ -37,3 +37,5 @@ export const trpcClientConfig: CreateTRPCClientOptions<AppRouter> &
 
 export const trpc = createReactQueryHooks<AppRouter>();
 export const trpcClient = trpc.createClient(trpcClientConfig);
+
+export type TQuery = keyof AppRouter['_def']['queries'];

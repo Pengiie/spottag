@@ -31,4 +31,8 @@
   .bg-brand-button:hover {
     @apply bg-gradient-to-l from-secondary to-primary bg-right cursor-pointer brightness-95;
   }
+
+  .loader {
+    @apply border-[5px] border-black-25 rounded-full w-16 h-16 animate-spin border-t-secondary;
+  }
 }

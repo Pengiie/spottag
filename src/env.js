@@ -3,6 +3,7 @@ const { z } = require("zod");
 
 const envSchema = z.object({
   DATABASE_URL: z.string(),
+  SESSION_SECRET: z.string(),
   SPOTIFY_CLIENT_ID: z.string(),
   SPOTIFY_CLIENT_SECRET: z.string(),
   SPOTIFY_REDIRECT_URI: z.string(),

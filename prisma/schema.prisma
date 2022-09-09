@@ -3,7 +3,10 @@ generator client {
 }
 
 generator zod {
-  provider = "zod-prisma"
+  provider    = "zod-prisma"
+  output      = "./zod"
+  modelCase   = "camelCase"
+  modelSuffix = "Schema"
 }
 
 datasource db {
@@ -12,7 +15,39 @@ datasource db {
 }
 
 model User {
+  // @zod.cuid()
   id       String @id @default(cuid())
   email    String @unique
   username String
+
+  sessions Session[]
+  accounts Account[]
+
+  @@map("users")
+}
+
+model Account {
+  // @zod.cuid()
+  id   String @id @default(cuid())
+  // @zod.cuid()
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id])
+  spotifyId String @unique
+  accessToken String
+  refreshToken String
+  expiresAt DateTime
+
+  @@map("accounts")
+}
+
+model Session {
+  // @zod.cuid()
+  id        String   @id @default(cuid())
+  // @zod.cuid()
+  userId    String   @unique @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  sessionToken String @unique @map("session_token")
+  expiresAt  DateTime @map("expires_at")
+
+  @@map("sessions")
 }

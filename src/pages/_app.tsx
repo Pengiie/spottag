@@ -14,12 +14,12 @@ import { withTRPC } from '@trpc/next'
 function SpotTag({ Component, pageProps }: AppProps) {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
-				<QueryClientProvider client={queryClient}>
-          <PageLayout>
-            <Component {...pageProps} />
-          </PageLayout>
+		<QueryClientProvider client={queryClient}>
+        	<PageLayout>
+        		<Component {...pageProps} />
+        	</PageLayout>
         </QueryClientProvider>
-		</trpc.Provider>
+	</trpc.Provider>
   )
 }
 
